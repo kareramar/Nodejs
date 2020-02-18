@@ -1,21 +1,43 @@
 const mongoose=require('mongoose');
+
+
 const UserSchema=mongoose.Schema({
+    roterID:{
+type:String,
+required:"please enter rotername"
+    },
     firstname:{
         type:String,
-        required:true
+        required:"Please enter firstname"
     },
     lastname:{
         type:String,
-        required:true
+        required:"please enter lastname"
     },
-    phone:{
+    mobile:{
         type:Number,
-        required:true
+        required:"please enter mobile number"
     },
+    DOB:{
+        
+        type:String,
+     //   required:"please enter dob"
+    },
+    // BirthDate:{
+    //     type:String,
+    //     required:'please enter dob'
+    // },
     address:{
         type:String,
-        required:true
-    }
+     //   required:"please enter address"
+    },
+    status:{
+        type:String,
+        required:"please enter status"
+    },
+    metadata:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Birth' }]
 });
 
+
 const User=module.exports=mongoose.model('User',UserSchema);
+ //module.exports=mongoose.model('Birth',BirthSchema);
